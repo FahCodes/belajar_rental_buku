@@ -71,4 +71,5 @@ class CategoryController extends Controller
         $category->restore();
         return redirect('categories')->with('status', 'Kategori Berhasil Dikembalikan');
     }
+
 }

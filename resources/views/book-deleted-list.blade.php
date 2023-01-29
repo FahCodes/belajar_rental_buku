@@ -7,8 +7,7 @@
     <h1>Book List</h1>
 
     <div class="my-5 d-flex justify-content-end">
-        <a href="book-deleted" class="btn btn-info me-5">Lihat Data Terhapus</a>
-        <a href="book-add" class="btn btn-primary">Add Data</a>
+        <a href="/books" class="btn btn-primary">Kembali</a>
     </div>
 
     <div class="mt-5">
@@ -26,28 +25,17 @@
                     <th>No.</th>
                     <th>Code</th>
                     <th>Title</th>
-                    <th>Category</th>
-                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($books as $item)
+                @foreach ($deletedBook as $item)
                     <tr>
                         <td> {{ $loop->iteration }}</td>
                         <td> {{ $item->book_code }}</td>
                         <td> {{ $item->title }}</td>
                         <td>
-                            @foreach ($item->categories as $category)
-                            <li>
-                                {{ $category->name }} <br>
-                            </li>
-                            @endforeach
-                        </td>
-                        <td> {{ $item->status }}</td>
-                        <td>
-                            <a href="/book-edit/{{ $item->slug }}">Edit</a>
-                            <a href="/book-delete/{{ $item->slug }}">Delete</a>
+                            <a href="/book-restore/{{ $item->slug }}">Restore</a>
                         </td>
                     </tr>
                 @endforeach
